@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto.labs.foo;
+
+// service interface
+service FooService {
+    rpc CreateFoo(Foo) returns (FooResponse) {}
+    rpc GetFoo(FooRequest) returns (FooResponse) {} 
+}
+
+// message
+message Foo {
+    uint32 id = 1;
+    string message = 2;
+}
+
+message FooRequest {}
+
+message FooResponse {
+    bool created = 1;
+    Foo foo = 2;
+    repeated Foo foos = 3;
+}
